@@ -1,0 +1,28 @@
+
+
+@import 'settings';
+
+
+@mixin bgimage($name) {
+  $url:"../assets/images/#{$name}";
+  background-image: url($url);
+}
+
+
+
+@mixin breakpoint($class) {
+  @if $class == small {
+    @media all and (max-width: 1024px)  { @content; }
+  }
+ 
+  @else if $class == medium {
+    @media all and (min-width: 1025px) and (max-width: 1264px)  { @content; }
+  }
+ 
+  @else if $class == large {
+    @media all and (min-width: 1265px) and (max-width: 1605px) { @content; }
+  }
+
+}
+
+

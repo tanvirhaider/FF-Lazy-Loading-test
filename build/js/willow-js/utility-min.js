@@ -1,0 +1,1 @@
+function createClass(e,t){var s=document.createElement("style");s.type="text/css",s.media="all",document.getElementsByTagName("head")[0].appendChild(s),(s.sheet||{}).insertRule?s.sheet.insertRule(e+"{"+t+"}",0):(s.styleSheet||s.sheet).addRule(e,t)}
