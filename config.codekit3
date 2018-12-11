@@ -108,6 +108,13 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"/app/old-index.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "/build/old-index.html",
+		"oF": 0
+		},
 	"/app/scss/_common.scss": {
 		"aP": 1,
 		"bl": 0,

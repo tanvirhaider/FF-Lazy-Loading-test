@@ -5,11 +5,53 @@
 // @codekit-prepend  "willow-js/sprite.js"
 
 
+function generateAhref (data){
+
+    console.log(data);
+
+    var holderDiv = document.createElement("div");
+    var parentDiv;
+
+    if (data.id) {holderDiv.setAttribute('id', data.id);}
+    if (data.position) { holderDiv.style.position = data.position;}
+    else {holderDiv.style.position = "absolute";}
+
+    if (data.target) {var mydiv = document.getElementById(data.target);}
+
+    if (data.container) { parentDiv = document.getElementById(data.container);}
+    else { parentDiv = mydiv.parentElement;}
+
+    var aTag = document.createElement('a');
+
+    if (data.link) {aTag.setAttribute('href',data.link.content);}
+    if (data.link.target) {aTag.setAttribute('target',data.link.target);} else {aTag.setAttribute('target',"_blank");}
+    if (data.link.function) {aTag.onclick = data.link.function;}
+
+    aTag.appendChild(mydiv);
+    holderDiv.appendChild(aTag);
+    parentDiv.appendChild(holderDiv);
+}
+
+
+
 
 function init () {
 
     var STAGE = document.getElementById("willow-ad-container");
     var adContent = document.getElementById("messaging-content");
+
+    generateAhref ({
+        link: {
+            content: "%%CLICK_URL_UNESC%%%%DEST_URL_UNESC%%"
+        },
+        target: "messaging-content",
+        id: "messaging-contentAtag"
+    });
+
+
+    function exits (whichOne) {
+        console.log(whichOne);
+    }
 
  
     adContainer = new Sprite({
@@ -23,6 +65,8 @@ function init () {
         class: 'contentArea-style',
         container:adContainer.obj
     });
+
+    
 
   
     // logo --------------------------------

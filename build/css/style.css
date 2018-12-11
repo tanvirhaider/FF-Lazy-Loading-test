@@ -90,6 +90,18 @@ body {
   src: url(https://apiadn.fonts.com/v2/fonts/subset?x=wt0z0ND%2fdjdWsmIUOO6vXq1qtPwCMYyUOGnyXvVBJ4eB%2f4iajAbNUvXJ13ifoOJCpMq28VCdpA1IcuurYjN5h9gemMTpvwhW8JlYNvNvdwyxpA1JJhvIgSEntpbeP9ydHsDLNL5lzqf5Wm3dURpTnx5ZFNVlS7%2bUCdOXz9WA84k%3d);
   src: url(https://apiadn.fonts.com/v2/fonts/subset?x=wt0z0ND%2fdjdWsmIUOO6vXq1qtPwCMYyUOGnyXvVBJ4eB%2f4iajAbNUvXJ13ifoOJCpMq28VCdpA1IcuurYjN5h9gemMTpvwhW8JlYNvNvdwyxpA1JJhvIgSEntpbeP9ydHsDLNL5lzqf5Wm3dURpTnx5ZFNVlS7%2bUCdOXz9WA84k%3d#iefix) format("eot"), url(https://apiadn.fonts.com/v2/fonts/subset?x=u0tNb2sdJWaRi%2b4hqjxTTzB%2f8nmJQt%2fEcqOKtiV67VzasOTDgXCQ28zU9bRO5OVdCaAk7C5I8f7deeHeQaJVF%2fiWMjvuE%2bKVdtojR4VDuYjlNLbN3In%2beBBhYbXSyKtrOmnyG6lk2KMvgTYJ24bq1WHVqYmVb7FoOeD7I1LfGrw%3d) format("woff2"), url(https://apiadn.fonts.com/v2/fonts/subset?x=cXybx6EtjJgxMPFEs3rQmqRA6uTaSI2YrmI6040oS2qN3%2b6%2fhJvSMeO9IdbyhhWh5%2btjwBBYmxHZJCBx4ssg5FYCsr4WWtTWolGFbA6L%2fEqNXJrOnLSidhERjEKmkDvjHlA1Tx87zuqlLhgpEradmeTJ6bY0TXQ6IdTxR3vu6p4%3d) format("woff"), url(https://apiadn.fonts.com/v2/fonts/subset?x=PJsSGUv6%2fUtao1%2bt4ykLCOIhXuvQSsoAfnsxkh0ro3loHePTLvUYqPRKrFAo4DvV9MfRfkMbBmM4UVJ%2fGv8BmGAVOLM8GaKUG%2fKGKiKx5NzZItP1NM9na%2bxyBpSQlZl9LZ75ZLApPwXorbxxMQk6GOW%2fp3qGn6Nee0Cbu1kyhDg%3d) format("truetype"); }
 
+
+  @font-face {
+    font-family: "[%FontFamilyName%]";
+    src: url([%FontURL%]) format("[%FontFormat%]");
+   }
+   
+   @font-face {
+    font-family: "[%SecondFontFamilyName%]";
+    src: url([%SecondFontURL%]) format("[%SecondFontFormat%]");
+   }
+
+
 a img {
   border: 0;
   width: 480px;
@@ -97,10 +109,13 @@ a img {
   top: 0px !important;
   left: 0px !important; }
 
+a {
+  text-decoration: none;
+  color: unset; }
+
 body {
   margin: 0px;
-  padding: 0px;
-  background-color: #e4e4e4; }
+  padding: 0px; }
 
 .video-content {
   margin: 0px; }
@@ -108,6 +123,10 @@ body {
 video {
   height: 270px !important;
   width: 480px; }
+
+.ad-video {
+  width: 480px !important;
+  height: 270px !important; }
 
 .stageStyle {
   position: relative;
@@ -123,11 +142,22 @@ video {
   display: flex;
   justify-content: space-between;
   border: 1px solid #bdbdbd; }
+  .stageStyle #messaging-contentAtag {
+    position: absolute;
+    width: calc(100% - 480px);
+    right: 0px;
+    height: 100%; }
+    .stageStyle #messaging-contentAtag a {
+      width: 100%;
+      height: 100%;
+      position: absolute; }
   .stageStyle .messaging-content {
-    position: relative;
-    width: calc(100% - 480px); }
+    position: absolute;
+    width: 100%;
+    height: 100%; }
     .stageStyle .messaging-content .adContainerStyle {
       background-color: #e7e7ec;
+      background-color: [%BackgroundColor%];
       box-sizing: border-box;
       overflow: hidden;
       left: 0px;
@@ -142,6 +172,10 @@ video {
       opacity: 0;
       -webkit-animation: fadein 1s forwards 0s;
               animation: fadein 1s forwards 0s; }
+      .stageStyle .messaging-content .adContainerStyle #contentAreaAtag {
+        
+        width: 100%;
+        height: 100%; }
       .stageStyle .messaging-content .adContainerStyle .contentArea-style {
         background-color: #e7e7ec;
         background-color: [%BackgroundColor%];
@@ -165,7 +199,9 @@ video {
           background-size: contain;
           left: 30px;
           top: 30px;
-          cursor: pointer; }
+          cursor: pointer; 
+          max-width: [%LogoMaxWidth%];
+        }
         .stageStyle .messaging-content .adContainerStyle .contentArea-style .header-style {
           font-family: "Proxima N W02 Smbd";
           font-size: 27px;
@@ -206,7 +242,6 @@ video {
              -moz-user-select: none;
               -ms-user-select: none;
                   user-select: none;
-          max-width: [%LogoMaxWidth%];
           border: 1px solid [%FontColor%];
           color: [%FontColor%]; }
       .stageStyle .messaging-content .adContainerStyle .picArea-style {
@@ -220,3 +255,8 @@ video {
         @media all and (max-width: 1024px) {
           .stageStyle .messaging-content .adContainerStyle .picArea-style {
             display: none; } }
+
+
+
+
+[%CustomCSS%]
